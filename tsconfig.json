@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "outDir": "lib",
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "./node_modules"
+  ]
+}
