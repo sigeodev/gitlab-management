@@ -1,6 +1,6 @@
 {
   "name": "@sigeo/gitlab-management",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Gitlab Management - Gitlab API wrapper for make your life easier",
   "main": "lib/GitlabManagement.js",
   "scripts": {
@@ -14,9 +14,9 @@
   "author": "Sigeo SRL",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sigeosrl/gitlab-management/issues"
+    "url": "https://github.com/sigeodev/gitlab-management/issues"
   },
-  "homepage": "https://github.com/sigeosrl/gitlab-management#readme",
+  "homepage": "https://github.com/sigeodev/gitlab-management#readme",
   "dependencies": {
     "axios": "^0.19.0",
     "query-string": "^6.7.0",

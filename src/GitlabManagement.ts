@@ -4,6 +4,9 @@ import { stringify } from 'query-string';
 // Avoid collision with others axios instance
 const axiosInstance = axios.create();
 
+/**
+ * Open a new issue.
+ */
 export interface INewIssueProps {
   iid?: number | string; // The internal ID of the project’s issue.
   title: string; // The title of an issue.
@@ -32,8 +35,10 @@ export interface INewIssueProps {
   merge_request_to_resolve_discussions_of?: number;
 }
 
-// Get a list of a project’s issues.
-export interface IGetIssues {
+/**
+ * Get a list of a project’s issues.
+ */
+export interface IGetIssuesProps {
   iids?: number[]; // Return only the milestone having the given iid.
   state?: string; // Return all issues or just those that are opened or closed.
   with_labels_details?: boolean; // If true, response will return more details for each label in labels field: :name, :color, :description, :text_color. Default is false.
@@ -91,6 +96,9 @@ export interface IGetIssues {
   labels?: string;
 }
 
+/**
+ * Get a list of projects.
+ */
 export interface IGetProjectsProps {
   archived?: boolean; // Limit by archived status
   visibility?: string; // Limit by visibility public, internal, or private
@@ -121,19 +129,31 @@ export interface IGetProjectsProps {
   order_by?: string;
 }
 
+/**
+ * Get a list of project members.
+ */
 export interface IGetMembersProps {
   query?: string; // A query string to search for members.
 }
 
+/**
+ * Delete an issue.
+ */
 export interface IDeleteIssueProps {
   issue_iid: number; // The internal ID of a project’s issue.
 }
 
+/**
+ * Gitlab access level by authorities
+ */
 export enum ACCESS_LEVEL {
   OWNER = 50,
   DEVELOPER = 40
 }
 
+/**
+ * GitlabManagement class
+ */
 class GitlabManagement {
   private readonly apiUrl = 'https://gitlab.com/api/v4/projects';
   private projectId: string;
@@ -152,7 +172,6 @@ class GitlabManagement {
 
     if (privateToken) {
       this.setPrivateToken(privateToken);
-      this.setHeaders({ 'Private-Token': privateToken });
     }
   }
 
@@ -176,17 +195,18 @@ class GitlabManagement {
    */
   public setPrivateToken = (privateToken: string) => {
     this.privateToken = privateToken;
+    this.setHeaders({ 'Private-Token': privateToken });
   };
 
   /**
    * Get project id.
    */
-  public getProjectId = (): number | string => this.projectId;
+  public getProjectId = (): string => this.projectId;
 
   /**
    * Get private token.
    */
-  public getPrivateToken = (): number | string => this.privateToken;
+  public getPrivateToken = (): string => this.privateToken;
 
   /**
    * Get headers.
@@ -231,7 +251,7 @@ class GitlabManagement {
    * Get issues.
    * @param props
    */
-  public getIssues = (props: IGetIssues): AxiosPromise =>
+  public getIssues = (props: IGetIssuesProps): AxiosPromise =>
     axiosInstance({
       method: 'GET',
       url: `${this.apiUrl}/${this.projectId}/issues?${stringify(props)}`,
