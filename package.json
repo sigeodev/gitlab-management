@@ -1,5 +1,5 @@
 {
-  "name": "gitlab-management",
+  "name": "@sigeo/gitlab-management",
   "version": "0.0.1",
   "description": "Gitlab Management - Gitlab API wrapper for make your life easier",
   "main": "lib/GitlabManagement.js",
