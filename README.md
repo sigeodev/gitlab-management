@@ -26,7 +26,7 @@ import React, { PureComponent }  from 'react';
 import ReactDOM from 'react-dom';
 import GitlabManagement from '@sigeo/gitlab-management';
 
-class App extends GitlabManagement {
+class App extends PureComponent {
   componentDidMount () {
     const gitlabProjectId = ...;
     const gitlabReporter = ...;
@@ -39,11 +39,7 @@ class App extends GitlabManagement {
     });
   }
 
-  render () {
-    return (
-        <h1>Example</h1>
-      );
-  }
+  ...
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'));
@@ -62,19 +58,19 @@ The library work only if you have set a Gitlab **project id** and a Gitlab **pri
 ## Methods
 Gitlab Management have a lot of method for wrapper Gitlab API:
 
-Property | Arguments Type | Return type | Description
----|---|---|---
-`setProjectId` | `string` | `void` | Set Gitlab project id
-`getProjectId` |  | `string` | Return Gitlab project id
-`setPrivateToken` | `string` | `void` | Set Gitlab private token
-`getPrivateToken` | | `string` | Return Gitlab private token
-`setHeaders` | `object` | `void` | An key-value map for set headers in API calls
-`getHeaders` | | `object` | Return headers
-`getProjects` | `IGetProjectsProps interface` | `Promise` | Get gitlab projects
-`getMembers` | `IGetMembersProps interface` | `Promise` | Get all projects members
-`openIssue` | `INewIssueProps interface` | `Promise` | Open a new issue
-`getIssues` | `IGetIssuesProps interface` | `Promise` | Get issues
-`closeIssue` | `IDeleteIssueProps interface` | `Promise` | Close an issue
+Property | Arguments number | Arguments Type | Return type | Description
+---|---|---|---|---
+`setProjectId` | 1 | `string` | `void` | Set Gitlab project id
+`getProjectId` | 0 |  | `string` | Return Gitlab project id
+`setPrivateToken` | 1 | `string` | `void` | Set Gitlab private token
+`getPrivateToken` | 0 | | `string` | Return Gitlab private token
+`setHeaders` | 1 | `object` | `void` | An key-value map for set headers in API calls
+`getHeaders` | 0 | | `object` | Return headers
+`getProjects` | 1 | `IGetProjectsProps interface` | `Promise` | Get gitlab projects
+`getMembers` | 1 | `IGetMembersProps interface` | `Promise` | Get all projects members
+`openIssue` | 1 | `INewIssueProps interface` | `Promise` | Open a new issue
+`getIssues` | 1 | `IGetIssuesProps interface` | `Promise` | Get issues
+`closeIssue` | 1 | `IDeleteIssueProps interface` | `Promise` | Close an issue
 
 ## Interfaces
 We use interfaces for many arguments methods. This is the list:
