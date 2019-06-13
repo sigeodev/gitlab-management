@@ -233,3 +233,9 @@ export interface IDeleteIssueProps {
   issue_iid: number; // The internal ID of a project’s issue.
 }
 ```
+
+## Security
+This package can create **an important vulnerability** if you use it **front-end side** because it's simple to see the private token using for it.
+We recommend to use this package only **back-end side** with **Node JS**.
+
+Enjoy!
