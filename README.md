@@ -238,7 +238,7 @@ export interface IDeleteIssueProps {
 This package can create **an important vulnerability** if you use it **front-end side** because it's simple to see the private token using for it.
 We recommend to use this package only **back-end side** with **Node JS**.
 
-### License
+## License
 Copyright © 2019 Sigeo S.R.L
 
 Licensed under a GPL3+ license: http://www.gnu.org/licenses/gpl-3.0.txt
